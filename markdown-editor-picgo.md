@@ -134,10 +134,27 @@ picgo upload /path/to/image.png
 打开 MarkText 后检查：
 
 ```text
-Preferences -> Image -> Image Uploader
+Preferences -> Image
 ```
 
-选择 PicGo。如果检测不到 PicGo，优先检查桌面入口里的 `PATH`：
+关键设置：
+
+```text
+Image Insert Action: Upload
+Image Uploader: PicGo
+```
+
+对应配置文件里应为：
+
+```json
+{
+  "imageInsertAction": "upload"
+}
+```
+
+如果这里还是 `path`，粘贴图片只会保存到 `~/.config/marktext/images/` 并插入本地路径，不会自动上传。
+
+如果检测不到 PicGo，优先检查桌面入口里的 `PATH`：
 
 ```bash
 grep '^Exec=' ~/.local/share/applications/marktext.desktop
