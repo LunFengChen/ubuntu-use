@@ -71,8 +71,8 @@ picgo --version
 
 运行后它会询问：
 
-- GitHub 仓库，默认 `LunFengChen/ubuntu-use`
-- 分支，默认 `master`
+- GitHub 仓库，默认 `LunFengChen/blog-imgbed`
+- 分支，默认 `main`
 - 图片存储目录，默认 `images/`
 - 自定义访问地址，默认 `https://cdn.jsdelivr.net/gh/<repo>@<branch>`
 - GitHub token
@@ -97,11 +97,11 @@ picgo --version
     "uploader": "github",
     "current": "github",
     "github": {
-      "repo": "LunFengChen/ubuntu-use",
-      "branch": "master",
+      "repo": "LunFengChen/blog-imgbed",
+      "branch": "main",
       "token": "<GitHub token>",
       "path": "images/",
-      "customUrl": "https://cdn.jsdelivr.net/gh/LunFengChen/ubuntu-use@master"
+      "customUrl": "https://cdn.jsdelivr.net/gh/LunFengChen/blog-imgbed@main"
     }
   },
   "picgoPlugins": {}
@@ -114,7 +114,7 @@ picgo --version
 
 推荐建 fine-grained personal access token：
 
-- Repository access：只选图床仓库，例如 `ubuntu-use`
+- Repository access：只选图床仓库，例如 `blog-imgbed`
 - Permissions：Contents 读写
 
 不要使用权限过大的全账号 token。
