@@ -24,10 +24,8 @@ https://github.com/LunFengChen/binary_ninja_mcp
 
 ## 安装来源说明
 
-安装包自行准备，选择需要的 Linux 版本下载并解压即可。
-
-本文后续只关心解压后的安装目录、版本切换、桌面入口、插件和 MCP 配置。如果是新版本 zip，例如 `binaryninja_linux_5.3.9434_personal.zip`，直接进入下面的“多版本并存的安装步骤”。
-
+全平台链接： https://pan.baidu.com/s/1GDLHyS_9ffPvJb3J_lDkKg 提取码: 6rhf 
+然后下载keygen.py然后到bn的安装目录执行就可以了 他会生成license.dat
 
 ## 当前机器的结果
 
