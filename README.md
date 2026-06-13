@@ -11,3 +11,8 @@
 
 - [Clash Verge Rev 链式代理脚本](clash-proxychain-script.md)
 - [Ghostty 使用与美化](ghostty-use.md)
+
+## 逆向工具
+
+- [Binary Ninja 在 Ubuntu 下的安装、多版本共存、桌面入口与插件处理](binaryninja-use.md)
+- [IDA / JADX / Binary Ninja MCP 在 Ubuntu 下的整理记录](reverse-mcp-use.md)
