@@ -234,6 +234,62 @@ Claude Code / Agent
 ~/.local/share/applications/xfjadx-gui.desktop
 ```
 
+### JADX GUI dock 图标显示齿轮
+
+现象：
+
+- `jadx-gui` 打开后，Ubuntu dock 上显示默认齿轮图标。
+- 鼠标悬浮提示是 `jadx-gui-JadxGUI`，而不是 `JADX GUI`。
+
+原因：
+
+- JADX GUI 是 Java/Swing 程序，桌面环境需要用窗口的 `WM_CLASS` 去匹配 `.desktop` 启动器。
+- 如果 `.desktop` 里没有正确的 `StartupWMClass`，GNOME 就会把运行窗口当成未知程序，显示齿轮。
+- 注意大小写必须完全一致，本机窗口类名是：
+
+```text
+jadx-gui-JadxGUI
+```
+
+修复方式是在两个 desktop 文件里加入或修正：
+
+```ini
+StartupWMClass=jadx-gui-JadxGUI
+```
+
+本机已处理文件：
+
+```text
+~/.local/share/applications/jadx-gui.desktop
+~/.local/share/applications/xfjadx-gui.desktop
+```
+
+可复现命令：
+
+```bash
+for f in "$HOME/.local/share/applications/jadx-gui.desktop" \
+         "$HOME/.local/share/applications/xfjadx-gui.desktop"; do
+  [ -f "$f" ] || continue
+  cp -n "$f" "$f.bak" 2>/dev/null || true
+  if grep -q '^StartupWMClass=' "$f"; then
+    sed -i 's/^StartupWMClass=.*/StartupWMClass=jadx-gui-JadxGUI/' "$f"
+  else
+    printf '\nStartupWMClass=jadx-gui-JadxGUI\n' >> "$f"
+  fi
+done
+update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+```
+
+验证：
+
+```bash
+grep -H '^StartupWMClass=' \
+  ~/.local/share/applications/jadx-gui.desktop \
+  ~/.local/share/applications/xfjadx-gui.desktop
+```
+
+改完后需要关闭当前 JADX 窗口，再从应用菜单重新打开。若 dock 上固定过旧齿轮图标，先取消固定，再重新固定。
+
 ### JADX AI MCP 插件
 
 插件项目：

@@ -6,6 +6,7 @@
 
 - [剪切板选用及其快捷键处理](clipboard-copyq-shortcuts.md)
 - [截图选用及其快捷键处理](screenshot-snipaste-shortcuts.md)
+- [Ubuntu 进程状态查看工具](process-monitor-tools.md)
 
 ## 代理与终端
 
@@ -16,3 +17,4 @@
 
 - [Binary Ninja 在 Ubuntu 下的安装、多版本共存、桌面入口与插件处理](binaryninja-use.md)
 - [IDA / JADX / Binary Ninja MCP 在 Ubuntu 下的整理记录](reverse-mcp-use.md)
+- [pidcat 在 Ubuntu 下的安装与使用记录](pidcat-use.md)
