@@ -1,0 +1,3 @@
+[submodule "terminal/ghostty-use"]
+	path = terminal/ghostty-use
+	url = https://github.com/LunFengChen/ghostty-use.git
