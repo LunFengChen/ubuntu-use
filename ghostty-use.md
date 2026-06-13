@@ -61,6 +61,51 @@ cursor-style = block
 cursor-style-blink = true
 ```
 
+## VS Code 集成终端字体
+
+Ghostty 的配置只影响 Ghostty 自己的窗口，不会自动影响 VS Code 的集成终端。也就是说：
+
+```text
+~/.config/ghostty/config
+```
+
+里的：
+
+```text
+font-family = "JetBrainsMono Nerd Font"
+```
+
+不会让 VS Code terminal 自动跟着变。
+
+VS Code 需要单独写：
+
+```text
+~/.config/Code/User/settings.json
+```
+
+本机当前配置：
+
+```json
+{
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 13,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace"
+}
+```
+
+这里 terminal 选择 `JetBrainsMono Nerd Font Mono`，是因为 VS Code 集成终端更适合使用 Mono 版本，Nerd Font 图标宽度也更稳定。
+
+如果改完没生效：
+
+1. 关闭当前 VS Code terminal，重新新建一个 terminal。
+2. 或执行 `Developer: Reload Window`。
+3. 确认字体存在：
+
+```bash
+fc-match "JetBrainsMono Nerd Font Mono"
+fc-match "JetBrainsMono Nerd Font"
+```
+
 ## Starship Prompt
 
 Prompt 展示的信息：
@@ -70,6 +115,7 @@ Prompt 展示的信息：
 - 当前目录
 - Git 分支
 - Git 工作区改动标记
+- 上一条命令执行耗时（超过 500ms 时显示）
 - 时间
 - CPU 使用率和核心数
 - 内存使用率和总量
@@ -79,6 +125,24 @@ Prompt 展示的信息：
 ```bash
 eval "$(starship init bash)"
 ```
+
+### 命令执行耗时
+
+Starship 的 `cmd_duration` 模块可以显示上一条命令执行时间。本机把它放在右侧状态区，超过 `500ms` 时显示：
+
+```toml
+format = """
+[╭─](fg:surface0)$username$hostname$directory$git_branch${custom.git_dirty}$fill$cmd_duration${custom.local_time}${custom.cpu}${custom.ram}
+[╰─](fg:surface0)$character"""
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+style = "fg:mauve bold"
+format = "[ 󱎫 $duration ]($style)"
+```
+
+如果想每条命令都显示耗时，可以把 `min_time` 改成 `0`；如果觉得太吵，可以改成 `1000` 或 `2000`。
 
 ## Nautilus 右键打开 Ghostty
 
