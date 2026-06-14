@@ -9,12 +9,13 @@
 - [截图选用及其快捷键处理](screenshot-snipaste-shortcuts.md)
 - [Ubuntu 进程状态查看工具](process-monitor-tools.md)
 - [Ubuntu 文件搜索工具：Everything 替代方案](file-search-tools.md)
-- [Bash 终端配置：历史隔离与命令预测提示](terminal-bash-config.md)
 
 ## 代理与终端
 
 - [Clash Verge Rev 链式代理脚本](clash-proxychain-script.md)
 - [Ghostty 使用与美化](ghostty-use.md)
+- [Bash 终端配置：历史隔离与命令预测提示](terminal/bash-terminal-config.md)
+- [Fish Shell 试用迁移记录：补全、历史预测与 adb 手机路径](terminal/fish-shell-migration.md)
 
 ## 逆向工具
 
