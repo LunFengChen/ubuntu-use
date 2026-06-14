@@ -9,6 +9,7 @@
 - [截图选用及其快捷键处理](screenshot-snipaste-shortcuts.md)
 - [Ubuntu 进程状态查看工具](process-monitor-tools.md)
 - [Ubuntu 文件搜索工具：Everything 替代方案](file-search-tools.md)
+- [Bash 终端配置：历史隔离与命令预测提示](terminal-bash-config.md)
 
 ## 代理与终端
 
