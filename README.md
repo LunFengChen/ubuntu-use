@@ -26,4 +26,5 @@
 
 - [Binary Ninja 在 Ubuntu 下的安装、多版本共存、桌面入口与插件处理](reverse/binaryninja-use.md)
 - [IDA / JADX / Binary Ninja MCP 在 Ubuntu 下的整理记录](reverse/reverse-mcp-use.md)
+- [ProxyPin MCP 抓包工具接入记录](reverse/proxypin-mcp-use.md)
 - [pidcat 在 Ubuntu 下的安装与使用记录](android/pidcat-use.md)
