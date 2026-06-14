@@ -8,6 +8,7 @@
 - [剪切板选用及其快捷键处理](clipboard-copyq-shortcuts.md)
 - [截图选用及其快捷键处理](screenshot-snipaste-shortcuts.md)
 - [Ubuntu 进程状态查看工具](process-monitor-tools.md)
+- [Ubuntu 文件搜索工具：Everything 替代方案](file-search-tools.md)
 
 ## 代理与终端
 
