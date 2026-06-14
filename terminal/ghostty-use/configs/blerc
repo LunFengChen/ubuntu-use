@@ -1,0 +1,30 @@
+bleopt char_width_mode=west
+bleopt emoji_width=2
+
+# PowerShell/PSReadLine-like live suggestions for Bash, powered by ble.sh.
+# Type a prefix and wait briefly: up to 5 matching history candidates are shown.
+
+# Keep the feature focused on history suggestions instead of noisy file/program guesses.
+bleopt complete_auto_complete=1
+bleopt complete_auto_history=1
+bleopt complete_auto_complete_opts=syntax-disabled
+
+# Show the candidate menu automatically while typing.
+bleopt complete_auto_delay=120
+bleopt complete_auto_menu=120
+bleopt complete_menu_maxlines=5
+bleopt complete_menu_style=linewise
+bleopt complete_menu_filter=1
+
+# Share history live between open Bash/Ghostty terminals.
+bleopt history_share=1
+
+# Subtle inline suggestion color on dark terminal backgrounds.
+ble-face auto_complete='fg=240,italic'
+
+# Up/Down search history by the prefix already typed, like shell history prediction.
+ble-bind -f up 'history-search-backward'
+ble-bind -f down 'history-search-forward'
+
+# Do not print noisy markers like [ble: exit 130] after Ctrl+C.
+bleopt exec_errexit_mark=

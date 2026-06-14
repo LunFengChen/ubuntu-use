@@ -6,6 +6,23 @@
 https://github.com/LunFengChen/clash-proxychain-script
 ```
 
+## 仓库关系
+
+`clash-proxychain-script` 是独立脚本项目，继续保留独立仓库：
+
+```text
+/home/xiaofeng/Desktop/projects/clash-proxychain-script
+https://github.com/LunFengChen/clash-proxychain-script
+```
+
+`ubuntu-use` 这里只记录 Ubuntu 桌面环境里的使用方式、配置位置和注意事项，不把脚本仓库作为 submodule 引入。
+
+原因：
+
+- `clash-proxychain-script` 是可独立维护和发布的脚本项目；
+- `Script.js` 有真实代理配置风险，独立仓库更容易控制模板和占位符；
+- `ubuntu-use` 只做个人 Ubuntu 工具使用笔记，避免把脚本源码和桌面笔记混在一起。
+
 ## 用途
 
 这个仓库记录 Clash Verge Rev 的全局增强脚本，用于优雅处理链式代理和多级跳。
