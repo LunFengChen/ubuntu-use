@@ -12,8 +12,8 @@
 
 ## 代理与终端
 
-- [Clash Verge Rev 链式代理脚本](clash-proxychain-script.md)
-- [Ghostty 使用与美化](ghostty-use.md)
+- [Clash Verge Rev 链式代理脚本](proxy/clash-proxychain-script.md)
+- [Ghostty 使用与美化](terminal/ghostty-use/README.md)
 - [Bash 终端配置：历史隔离与命令预测提示](terminal/bash-terminal-config.md)
 - [Fish Shell 试用迁移记录：补全、历史预测与 adb 手机路径](terminal/fish-shell-migration.md)
 

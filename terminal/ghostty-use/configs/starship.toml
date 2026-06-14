@@ -1,0 +1,82 @@
+# Compact Ghostty prompt.
+# Copy to: ~/.config/starship.toml
+
+add_newline = true
+palette = "compact_forest"
+
+format = """
+[╭─](fg:surface0)$username$hostname$directory$git_branch${custom.git_dirty}$fill${custom.local_time}${custom.cpu}${custom.ram}
+[╰─](fg:surface0)$character"""
+
+[palettes.compact_forest]
+surface0 = "#303030"
+muted = "#8a8a8a"
+text = "#d8d8d8"
+green = "#98c379"
+blue = "#7aa2a9"
+cyan = "#80cbc4"
+yellow = "#d7ba7d"
+mauve = "#c792ea"
+red = "#e06c75"
+
+[username]
+show_always = true
+style_user = "fg:green bold"
+style_root = "fg:red bold"
+format = "[  $user]($style)"
+
+[hostname]
+ssh_only = false
+style = "fg:green bold"
+format = "[  $hostname]($style)"
+
+[directory]
+style = "fg:blue bold"
+truncation_length = 3
+truncate_to_repo = false
+read_only = " 󰌾"
+format = "[  $path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = " "
+style = "fg:blue bold"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+disabled = true
+
+[custom.git_dirty]
+command = "git status --porcelain 2>/dev/null | awk 'NR==1 {print \"●\"; exit}'"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -n \"$(git status --porcelain 2>/dev/null)\""
+style = "fg:yellow bold"
+format = "[$output ]($style)"
+
+[fill]
+symbol = " "
+style = "fg:surface0"
+
+[custom.local_time]
+command = "TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S'"
+when = "true"
+style = "fg:yellow bold"
+format = "[  $output ]($style)"
+
+[custom.cpu]
+command = '''awk 'BEGIN{cache=ENVIRON["HOME"]"/.cache/starship-cpu"} NR==1{idle=$5+$6; total=0; for(i=2;i<=8;i++) total+=$i; if ((getline old < cache)>0) {split(old,a," "); dt=total-a[1]; di=idle-a[2]; if (dt>0) printf "%d%%", (100*(dt-di)/dt); else printf "0%%"} else printf "--"; close(cache); print total, idle > cache}' /proc/stat; printf " (%s)" "$(nproc)"'''
+when = "test -r /proc/stat"
+style = "fg:cyan bold"
+format = "[  $output ]($style)"
+
+[custom.ram]
+command = "free -b | awk '/^Mem:/ {gib=$2/1024/1024/1024; installed=1; while (installed < gib) installed*=2; printf \"%d%% (%dGB)\", ($3 / $2) * 100, installed}'"
+when = "command -v free >/dev/null 2>&1"
+style = "fg:green bold"
+format = "[ 󰍛 $output ]($style)"
+
+[character]
+success_symbol = "[❯](fg:green bold)"
+error_symbol = "[❯](fg:red bold)"
+vimcmd_symbol = "[❮](fg:green bold)"
+
+[line_break]
+disabled = false
