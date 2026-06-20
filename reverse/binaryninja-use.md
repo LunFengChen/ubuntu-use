@@ -471,14 +471,14 @@ Claude / Codex 只注册 Gateway：
 
 ```bash
 codex mcp add GateWay-Mcp -- \
-  /home/xiaofeng/Applications/Gateway-Mcp/.venv/bin/python \
-  /home/xiaofeng/Applications/Gateway-Mcp/gateway_mcp_server.py \
-  --config /home/xiaofeng/Applications/Gateway-Mcp/mcps_config.json
+  /home/xiaofeng/Desktop/projects/Gateway-Mcp/.venv/bin/python \
+  /home/xiaofeng/Desktop/projects/Gateway-Mcp/gateway_mcp_server.py \
+  --config /home/xiaofeng/Desktop/projects/Gateway-Mcp/mcps_config.json
 
 claude mcp add -s user GateWay-Mcp -- \
-  /home/xiaofeng/Applications/Gateway-Mcp/.venv/bin/python \
-  /home/xiaofeng/Applications/Gateway-Mcp/gateway_mcp_server.py \
-  --config /home/xiaofeng/Applications/Gateway-Mcp/mcps_config.json
+  /home/xiaofeng/Desktop/projects/Gateway-Mcp/.venv/bin/python \
+  /home/xiaofeng/Desktop/projects/Gateway-Mcp/gateway_mcp_server.py \
+  --config /home/xiaofeng/Desktop/projects/Gateway-Mcp/mcps_config.json
 ```
 
 如果临时不走 Gateway，也可以用插件自带 installer 直接写 MCP 客户端配置：

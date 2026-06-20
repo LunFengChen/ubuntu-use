@@ -56,6 +56,17 @@ sudo apt install fsearch
 sudo snap install fsearch
 ```
 
+## 本机迁移记录
+
+当前把原来放在 `~/Applications` 下的 FSearch 相关本地记录目录迁到了项目区：
+
+```text
+~/Desktop/projects/fsearch-flatpak/fsearch
+```
+
+旧路径 `~/Applications/fsearch-flatpak` 已移除，没有保留 symlink。
+
+
 ## 使用方式
 
 ### FSearch

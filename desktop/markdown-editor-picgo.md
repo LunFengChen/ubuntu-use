@@ -20,12 +20,14 @@
 ## 本机安装位置
 
 ```text
-~/Applications/MarkText/marktext-linux-0.19.1.AppImage
+~/Desktop/projects/MarkText/marktext-linux-0.19.1.AppImage
 ~/.local/share/applications/marktext.desktop
 ~/.local/share/icons/hicolor/256x256/apps/marktext.png
 ~/.nvm/versions/node/v24.16.0/bin/picgo
 ~/.picgo/config.json
 ```
+
+迁移记录：MarkText 已从 `~/Applications/MarkText` 移到 `~/Desktop/projects/MarkText`，旧路径未保留 symlink；`~/.local/share/applications/marktext.desktop` 的 `Exec=` 已同步改成新 AppImage 绝对路径。
 
 MarkText 已设置为 Markdown 文件默认打开程序：
 
@@ -46,8 +48,8 @@ marktext.desktop
 MarkText：
 
 ```bash
-mkdir -p ~/Applications/MarkText
-cd ~/Applications/MarkText
+mkdir -p ~/Desktop/projects/MarkText
+cd ~/Desktop/projects/MarkText
 curl -L --fail \
   -o marktext-linux-0.19.1.AppImage \
   https://github.com/marktext/marktext/releases/download/v0.19.1/marktext-linux-0.19.1.AppImage
@@ -66,7 +68,7 @@ picgo --version
 本机放了一个交互式配置脚本：
 
 ```bash
-~/Applications/MarkText/config-picgo-github.sh
+~/Desktop/projects/MarkText/config-picgo-github.sh
 ```
 
 运行后它会询问：
@@ -80,7 +82,7 @@ picgo --version
 运行：
 
 ```bash
-~/Applications/MarkText/config-picgo-github.sh
+~/Desktop/projects/MarkText/config-picgo-github.sh
 ```
 
 它会写入：

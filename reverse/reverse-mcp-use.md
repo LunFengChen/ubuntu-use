@@ -26,10 +26,10 @@ Claude Code / Agent
 ## 当前本机目录
 
 ```text
-~/Applications/Gateway-Mcp
-~/Applications/ida-pro-mcp
-~/Applications/jadx-mcp-server
-~/Applications/jadx-ai-mcp
+~/Desktop/projects/Gateway-Mcp
+~/Desktop/projects/ida-pro-mcp
+~/Desktop/projects/jadx-mcp-server
+~/Desktop/projects/jadx-ai-mcp
 ~/.binaryninja/plugins/binary_ninja_mcp
 ```
 
@@ -56,11 +56,11 @@ Claude Code / Agent
   "mcpServers": {
     "GateWay-Mcp": {
       "type": "stdio",
-      "command": "/home/xiaofeng/Applications/Gateway-Mcp/.venv/bin/python",
+      "command": "/home/xiaofeng/Desktop/projects/Gateway-Mcp/.venv/bin/python",
       "args": [
-        "/home/xiaofeng/Applications/Gateway-Mcp/gateway_mcp_server.py",
+        "/home/xiaofeng/Desktop/projects/Gateway-Mcp/gateway_mcp_server.py",
         "--config",
-        "/home/xiaofeng/Applications/Gateway-Mcp/mcps_config.json"
+        "/home/xiaofeng/Desktop/projects/Gateway-Mcp/mcps_config.json"
       ],
       "env": {}
     }
@@ -75,7 +75,7 @@ Claude Code / Agent
 配置文件：
 
 ```text
-~/Applications/Gateway-Mcp/mcps_config.json
+~/Desktop/projects/Gateway-Mcp/mcps_config.json
 ```
 
 当前逆向 MCP server 配置核心内容：
@@ -90,9 +90,9 @@ Claude Code / Agent
       "disabled": false
     },
     "jadx-mcp-server": {
-      "command": "/home/xiaofeng/Applications/jadx-mcp-server/.venv/bin/python",
+      "command": "/home/xiaofeng/Desktop/projects/jadx-mcp-server/.venv/bin/python",
       "args": [
-        "/home/xiaofeng/Applications/jadx-mcp-server/jadx_mcp_server.py",
+        "/home/xiaofeng/Desktop/projects/jadx-mcp-server/jadx_mcp_server.py",
         "--jadx-host",
         "127.0.0.1",
         "--jadx-port",
@@ -129,7 +129,7 @@ call_gateway_tool(name="...", arguments={...})
 ### 本机仓库
 
 ```text
-~/Applications/ida-pro-mcp
+~/Desktop/projects/ida-pro-mcp
 ```
 
 remote：
@@ -154,8 +154,8 @@ https://github.com/LunFengChen/ida-pro-mcp
 ### IDA 插件入口
 
 ```text
-~/.idapro/plugins/ida_mcp.py -> ~/Applications/ida-pro-mcp/src/ida_pro_mcp/ida_mcp.py
-~/.idapro/plugins/ida_mcp    -> ~/Applications/ida-pro-mcp/src/ida_pro_mcp/ida_mcp
+~/.idapro/plugins/ida_mcp.py -> ~/Desktop/projects/ida-pro-mcp/src/ida_pro_mcp/ida_mcp.py
+~/.idapro/plugins/ida_mcp    -> ~/Desktop/projects/ida-pro-mcp/src/ida_pro_mcp/ida_mcp
 ```
 
 ### 自动启动处理
@@ -295,7 +295,7 @@ grep -H '^StartupWMClass=' \
 插件项目：
 
 ```text
-~/Applications/jadx-ai-mcp
+~/Desktop/projects/jadx-ai-mcp
 ```
 
 remote：
@@ -315,7 +315,7 @@ https://github.com/zinja-coder/jadx-ai-mcp
 Python MCP server：
 
 ```text
-~/Applications/jadx-mcp-server
+~/Desktop/projects/jadx-mcp-server
 ```
 
 remote：
@@ -327,14 +327,14 @@ https://github.com/zinja-coder/jadx-mcp-server
 venv：
 
 ```text
-~/Applications/jadx-mcp-server/.venv
+~/Desktop/projects/jadx-mcp-server/.venv
 ```
 
 Gateway 里当前以 stdio 方式启动：
 
 ```bash
-/home/xiaofeng/Applications/jadx-mcp-server/.venv/bin/python \
-  /home/xiaofeng/Applications/jadx-mcp-server/jadx_mcp_server.py \
+/home/xiaofeng/Desktop/projects/jadx-mcp-server/.venv/bin/python \
+  /home/xiaofeng/Desktop/projects/jadx-mcp-server/jadx_mcp_server.py \
   --jadx-host 127.0.0.1 \
   --jadx-port 8650
 ```
@@ -359,8 +359,8 @@ Gateway 里当前以 stdio 方式启动：
 
 ```bash
 ss -ltnp | rg ':8650|:8651'
-~/Applications/jadx-mcp-server/.venv/bin/python \
-  ~/Applications/jadx-mcp-server/jadx_mcp_server.py --help
+~/Desktop/projects/jadx-mcp-server/.venv/bin/python \
+  ~/Desktop/projects/jadx-mcp-server/jadx_mcp_server.py --help
 ```
 
 如果 `8650` 没有监听，通常是 JADX GUI 侧插件没启动，而不是 Python MCP server 的问题。
@@ -387,7 +387,7 @@ binaryninja-use.md
 ### 看 Gateway 配置
 
 ```bash
-python3 -m json.tool ~/Applications/Gateway-Mcp/mcps_config.json
+python3 -m json.tool ~/Desktop/projects/Gateway-Mcp/mcps_config.json
 ```
 
 ### 看 Claude Code MCP 顶层配置

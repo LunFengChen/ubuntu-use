@@ -128,7 +128,7 @@ Starting MCP server 'ProxyPin' with transport 'stdio'
 Gateway-Mcp 已从：
 
 ```text
-~/Applications/Gateway-Mcp
+~/Desktop/projects/Gateway-Mcp
 ```
 
 迁移到：
@@ -137,11 +137,7 @@ Gateway-Mcp 已从：
 ~/Desktop/projects/Gateway-Mcp
 ```
 
-旧路径保留 symlink，避免旧配置立刻断：
-
-```text
-~/Applications/Gateway-Mcp -> ~/Desktop/projects/Gateway-Mcp
-```
+旧路径 symlink 已删除，不再保留。
 
 Gateway 配置文件：
 
@@ -229,13 +225,13 @@ proxypin_mcp_clear_requests
 
 ## Applications 到 projects 的迁移
 
-以下 MCP/逆向相关项目已从 `~/Applications` 移到 `~/Desktop/projects`，并在旧路径保留 symlink：
+以下 MCP/逆向相关项目已从 `~/Applications` 移到 `~/Desktop/projects`；旧路径 symlink 已按需删除，不再保留：
 
 ```text
-~/Applications/Gateway-Mcp      -> ~/Desktop/projects/Gateway-Mcp
-~/Applications/ida-pro-mcp      -> ~/Desktop/projects/ida-pro-mcp
-~/Applications/jadx-ai-mcp      -> ~/Desktop/projects/jadx-ai-mcp
-~/Applications/jadx-mcp-server  -> ~/Desktop/projects/jadx-mcp-server
+~/Desktop/projects/Gateway-Mcp
+~/Desktop/projects/ida-pro-mcp
+~/Desktop/projects/jadx-ai-mcp
+~/Desktop/projects/jadx-mcp-server
 ```
 
 迁移前检查过没有正在运行的 MCP 进程，也没有监听这些常见端口：
