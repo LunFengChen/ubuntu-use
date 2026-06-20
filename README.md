@@ -9,6 +9,7 @@
 - [截图选用及其快捷键处理](desktop/screenshot-snipaste-shortcuts.md)
 - [Ubuntu 进程状态查看工具](desktop/process-monitor-tools.md)
 - [Ubuntu 文件搜索工具：Everything 替代方案](desktop/file-search-tools.md)
+- [Ubuntu 下批量把 PPT/PPTX 转成 PDF](desktop/ppt-to-pdf-libreoffice.md)
 
 ## 代理与终端
 
