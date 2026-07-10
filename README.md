@@ -11,6 +11,7 @@
 - [Ubuntu 文件搜索工具：Everything 替代方案](desktop/file-search-tools.md)
 - [Ubuntu 下批量把 PPT/PPTX 转成 PDF](desktop/ppt-to-pdf-libreoffice.md)
 - [Zed 编辑器安装与使用记录](desktop/zed-editor-use.md)
+- [QQMusic Linux 启动失败与白屏修复记录](desktop/qqmusic-linux-gui-fix.md)
 
 ## 代理与终端
 
@@ -32,3 +33,4 @@
 - [逆向常用工具源码安装记录](reverse/reverse-tools.md)
 - [ProxyPin MCP 抓包工具接入记录](reverse/proxypin-mcp-use.md)
 - [pidcat 在 Ubuntu 下的安装与使用记录](android/pidcat-use.md)
+- [AOSP 编译 nofile 持久化配置](android/aosp-build-nofile-limit.md)
