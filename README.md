@@ -12,6 +12,10 @@
 - [Ubuntu 下批量把 PPT/PPTX 转成 PDF](desktop/ppt-to-pdf-libreoffice.md)
 - [Zed 编辑器安装与使用记录](desktop/zed-editor-use.md)
 
+## 系统维护
+
+- [Ubuntu LVM 合盘：把数据盘并入根目录 `/`](desktop/lvm-merge-disk-into-root.md)
+
 ## 代理与终端
 
 - [Clash Verge Rev 链式代理脚本](proxy/clash-proxychain-script.md)
