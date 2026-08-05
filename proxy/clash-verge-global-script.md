@@ -151,6 +151,16 @@ dns:
 
 这里填主机名即可，不要填 `https://`、路径或端口。
 
+如果关 Clash/TUN 能访问，开 Clash/TUN 后同一域名直连超时，说明连接路径仍被 TUN 接管了。把解析出来的目标 IP 加到 `directIpRanges`：
+
+```js
+directIpRanges: [
+  "28.0.0.6/32",
+],
+```
+
+脚本会同时生成 `IP-CIDR,28.0.0.6/32,DIRECT,no-resolve`，并加入 `tun.route-exclude-address`。
+
 ## 微信、QQ 和企业微信
 
 脚本里保留了微信/QQ/企业微信直连处理：
