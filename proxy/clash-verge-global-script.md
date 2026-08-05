@@ -126,7 +126,7 @@ Default           # 最终默认出口
 
 ## 指定域名直连
 
-需要绕过所有代理策略时，把域名写到全局脚本的 `USER_CONFIG.directDomains`：
+需要绕过所有代理策略，并让 Mihomo 用系统 DNS 解析时，把域名写到全局脚本的 `USER_CONFIG.directDomains`：
 
 ```js
 directDomains: [
@@ -134,10 +134,19 @@ directDomains: [
 ],
 ```
 
-脚本会生成：
+脚本会生成直连规则：
 
 ```yaml
 DOMAIN,git.datastory.com.cn,DIRECT
+```
+
+还会给 DNS 加策略：
+
+```yaml
+dns:
+  nameserver-policy:
+    git.datastory.com.cn: system
+  direct-nameserver-follow-policy: true
 ```
 
 这里填主机名即可，不要填 `https://`、路径或端口。
