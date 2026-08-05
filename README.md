@@ -12,10 +12,11 @@
 - [Ubuntu 下批量把 PPT/PPTX 转成 PDF](desktop/ppt-to-pdf-libreoffice.md)
 - [Zed 编辑器安装与使用记录](desktop/zed-editor-use.md)
 - [QQMusic Linux 启动失败与白屏修复记录](desktop/qqmusic-linux-gui-fix.md)
+- [企业微信 deepin-wine 在 Ubuntu 24.04 下安装与启动修复记录](desktop/wecom-deepin-wine-ubuntu.md)
 
 ## 代理与终端
 
-- [Clash Verge Rev 链式代理脚本](proxy/clash-proxychain-script.md)
+- [Clash Verge Rev 全局脚本](proxy/clash-verge-global-script.md)
 - [Ghostty 使用与美化](terminal/ghostty-use/README.md)
 - [Bash 终端配置：历史隔离与命令预测提示](terminal/bash-terminal-config.md)
 - [Fish Shell 试用迁移记录：补全、历史预测与 adb 手机路径](terminal/fish-shell-migration.md)
@@ -32,5 +33,6 @@
 - [IDA / JADX / Binary Ninja MCP 在 Ubuntu 下的整理记录](reverse/reverse-mcp-use.md)
 - [逆向常用工具源码安装记录](reverse/reverse-tools.md)
 - [ProxyPin MCP 抓包工具接入记录](reverse/proxypin-mcp-use.md)
+- [Reqable MCP 与 Gateway-Mcp 接入记录](reverse/reqable-mcp-use.md)
 - [pidcat 在 Ubuntu 下的安装与使用记录](android/pidcat-use.md)
 - [AOSP 编译 nofile 持久化配置](android/aosp-build-nofile-limit.md)

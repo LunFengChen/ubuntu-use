@@ -1,4 +1,4 @@
-# Clash Verge Rev 链式代理脚本
+# Clash Verge Rev 全局脚本
 
 相关仓库：
 
@@ -25,7 +25,7 @@ https://github.com/LunFengChen/clash-proxychain-script
 
 ## 用途
 
-这个仓库记录 Clash Verge Rev 的全局增强脚本，用于优雅处理链式代理和多级跳。
+这个仓库记录 Clash Verge Rev 的全局增强脚本，用于处理链式代理、域名直连和常见进程例外。
 
 核心目标：
 
@@ -124,12 +124,30 @@ Default           # 最终默认出口
 
 如果某个国内站直连异常，可以只给该域名单独加规则，而不是把整个 `Domestic-Sites` 切到代理。
 
-## 微信和 QQ
+## 指定域名直连
 
-脚本里保留了微信/QQ 直连处理：
+需要绕过所有代理策略时，把域名写到全局脚本的 `USER_CONFIG.directDomains`：
+
+```js
+directDomains: [
+  "git.datastory.com.cn",
+],
+```
+
+脚本会生成：
+
+```yaml
+DOMAIN,git.datastory.com.cn,DIRECT
+```
+
+这里填主机名即可，不要填 `https://`、路径或端口。
+
+## 微信、QQ 和企业微信
+
+脚本里保留了微信/QQ/企业微信直连处理：
 
 - `find-process-mode: always`
-- 微信/QQ 进程直连
+- 微信/QQ/企业微信进程直连，例如 `WeChat.exe`、`QQ`、`WXWork.exe`、`WeMailNode.exe`
 - `qq.com`、`tencent.com`、`gtimg.com`、`qpic.cn` 等域名直连
 - 部分微信图片相关 IP 段加入 `tun.route-exclude-address`
 
