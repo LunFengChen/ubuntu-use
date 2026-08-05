@@ -39,7 +39,7 @@ https://github.com/LunFengChen/clash-proxychain-script
 基本链路：
 
 ```text
-本机应用 -> 订阅节点/前置节点 -> SOCKS5 落地节点 -> 目标网站
+本机应用 -> 订阅自动节点/前置节点 -> SOCKS5 落地节点 -> 目标网站
 ```
 
 对应配置：
@@ -55,6 +55,22 @@ dialer-proxy: Chain-Front
 ```
 
 含义是：最终落地节点通过 `Chain-Front` 拨出。
+
+`dialer-proxy` 可以填单个节点，也可以填策略组名。当前本机脚本里，机场 webshare 住宅链的 `front` 已改成订阅里的 `自动选择`：
+
+```js
+front: "自动选择",
+```
+
+这样不是固定绑死 `日本JP-HY2`，而是让原机场自动组作为跳板；某个机场节点挂掉时，自动组会切到其他可用节点，住宅落地节点仍然作为最终出口。
+
+GUI 里的链名也要表达这一点，所以本机脚本把原来的 `local->机场:JP->webshare:...` 改成了：
+
+```text
+local->机场:auto->webshare:US:chicago
+local->机场:auto->webshare:US:california
+local->机场:auto->webshare:US:newYork
+```
 
 多级跳时：
 
