@@ -14,6 +14,10 @@
 - [QQMusic Linux 启动失败与白屏修复记录](desktop/qqmusic-linux-gui-fix.md)
 - [企业微信 deepin-wine 在 Ubuntu 24.04 下安装与启动修复记录](desktop/wecom-deepin-wine-ubuntu.md)
 
+## 系统维护
+
+- [Ubuntu LVM 合盘：把数据盘并入根目录 `/`](desktop/lvm-merge-disk-into-root.md)
+
 ## 代理与终端
 
 - [Clash Verge Rev 全局脚本](proxy/clash-verge-global-script.md)
