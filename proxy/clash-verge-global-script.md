@@ -167,15 +167,17 @@ dns:
 
 这里填主机名即可，不要填 `https://`、路径或端口。
 
-如果关 Clash/TUN 能访问，开 Clash/TUN 后同一域名直连超时，说明连接路径仍被 TUN 接管了。把解析出来的目标 IP 加到 `directIpRanges`：
+如果关 Clash/TUN 能访问，开 Clash/TUN 后同一域名直连超时，说明连接路径仍被 TUN 接管了。此时只能把**目标真实公网 IP/CIDR** 加到 `directIpRanges`，不要填写 Mihomo fake-ip 地址。
 
 ```js
 directIpRanges: [
-  "28.0.0.6/32",
+  "目标真实公网IP/32",
 ],
 ```
 
-脚本会同时生成 `IP-CIDR,28.0.0.6/32,DIRECT,no-resolve`，并加入 `tun.route-exclude-address`。
+脚本会同时生成 `IP-CIDR,目标真实公网IP/32,DIRECT,no-resolve`，并加入 `tun.route-exclude-address`。
+
+注意：如果 `getent hosts 域名` 看到的是 `28.0.0.0/8`、`198.18.0.0/15` 这类 fake-ip 地址，不要加入 `directIpRanges`。fake-ip 会被 Mihomo 动态复用；把它排除出 TUN 后，其他域名（例如 `github.com`）可能刚好拿到同一个 fake-ip，导致连接被强制直连到假地址并超时。
 
 ## 微信、QQ 和企业微信
 
