@@ -1,4 +1,4 @@
-# Clash Verge Rev 链式代理脚本
+# Clash Verge Rev 全局脚本
 
 相关仓库：
 
@@ -25,7 +25,7 @@ https://github.com/LunFengChen/clash-proxychain-script
 
 ## 用途
 
-这个仓库记录 Clash Verge Rev 的全局增强脚本，用于优雅处理链式代理和多级跳。
+这个仓库记录 Clash Verge Rev 的全局增强脚本，用于处理链式代理、域名直连和常见进程例外。
 
 核心目标：
 
@@ -39,7 +39,7 @@ https://github.com/LunFengChen/clash-proxychain-script
 基本链路：
 
 ```text
-本机应用 -> 订阅节点/前置节点 -> SOCKS5 落地节点 -> 目标网站
+本机应用 -> 订阅自动节点/前置节点 -> SOCKS5 落地节点 -> 目标网站
 ```
 
 对应配置：
@@ -55,6 +55,22 @@ dialer-proxy: Chain-Front
 ```
 
 含义是：最终落地节点通过 `Chain-Front` 拨出。
+
+`dialer-proxy` 可以填单个节点，也可以填策略组名。当前本机脚本里，机场 webshare 住宅链的 `front` 已改成订阅里的 `自动选择`：
+
+```js
+front: "自动选择",
+```
+
+这样不是固定绑死 `日本JP-HY2`，而是让原机场自动组作为跳板；某个机场节点挂掉时，自动组会切到其他可用节点，住宅落地节点仍然作为最终出口。
+
+GUI 里的链名也要表达这一点，所以本机脚本把原来的 `local->机场:JP->webshare:...` 改成了：
+
+```text
+local->机场:auto->webshare:US:chicago
+local->机场:auto->webshare:US:california
+local->机场:auto->webshare:US:newYork
+```
 
 多级跳时：
 
@@ -124,12 +140,51 @@ Default           # 最终默认出口
 
 如果某个国内站直连异常，可以只给该域名单独加规则，而不是把整个 `Domestic-Sites` 切到代理。
 
-## 微信和 QQ
+## 指定域名直连
 
-脚本里保留了微信/QQ 直连处理：
+需要绕过所有代理策略，并让 Mihomo 用系统 DNS 解析时，把域名写到全局脚本的 `USER_CONFIG.directDomains`：
+
+```js
+directDomains: [
+  "git.datastory.com.cn",
+],
+```
+
+脚本会生成直连规则：
+
+```yaml
+DOMAIN,git.datastory.com.cn,DIRECT
+```
+
+还会给 DNS 加策略：
+
+```yaml
+dns:
+  nameserver-policy:
+    git.datastory.com.cn: system
+  direct-nameserver-follow-policy: true
+```
+
+这里填主机名即可，不要填 `https://`、路径或端口。
+
+如果关 Clash/TUN 能访问，开 Clash/TUN 后同一域名直连超时，说明连接路径仍被 TUN 接管了。此时只能把**目标真实公网 IP/CIDR** 加到 `directIpRanges`，不要填写 Mihomo fake-ip 地址。
+
+```js
+directIpRanges: [
+  "目标真实公网IP/32",
+],
+```
+
+脚本会同时生成 `IP-CIDR,目标真实公网IP/32,DIRECT,no-resolve`，并加入 `tun.route-exclude-address`。
+
+注意：如果 `getent hosts 域名` 看到的是 `28.0.0.0/8`、`198.18.0.0/15` 这类 fake-ip 地址，不要加入 `directIpRanges`。fake-ip 会被 Mihomo 动态复用；把它排除出 TUN 后，其他域名（例如 `github.com`）可能刚好拿到同一个 fake-ip，导致连接被强制直连到假地址并超时。
+
+## 微信、QQ 和企业微信
+
+脚本里保留了微信/QQ/企业微信直连处理：
 
 - `find-process-mode: always`
-- 微信/QQ 进程直连
+- 微信/QQ/企业微信进程直连，例如 `WeChat.exe`、`QQ`、`WXWork.exe`、`WeMailNode.exe`
 - `qq.com`、`tencent.com`、`gtimg.com`、`qpic.cn` 等域名直连
 - 部分微信图片相关 IP 段加入 `tun.route-exclude-address`
 
